@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Progress Pie Chart</title>
+    <style>
+        .form-container {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           align-items: center;
+}
+.form {
+  width: 50%;
+  padding: 10px;
+}
+.result {
+  width: 50%;
+  padding: 10px;
+}
+    input[type=text] {
+      
+      
+      background-color: #D9D9D9;
+      border-style: hidden
+      
+      
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Progress Pie Chart</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <div class="form-container">
+    <div class="form">
+    <form method="POST">
+        <input type="text" name="input_value" placeholder="input value" required><br><br>
+        <input type="text" name="max_value" placeholder="max value" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    <div class="result">  
+    {% if progress %}
+    <img src="{{ url_for('static', filename='chart.png') }}" alt="Progress Pie Chart">
+    {% endif %}
+    </div>
+    </div>
+</body>
+</html>
+
+
